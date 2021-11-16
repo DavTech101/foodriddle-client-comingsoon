@@ -10,7 +10,7 @@ const Title = styled.h1`
   }
 `;
 
-const Description = tw.p`text-2xl leading-normal text-center`;
+const Description = tw.p`text-xl italic leading-normal text-center`;
 
 //######### Components #################
 
