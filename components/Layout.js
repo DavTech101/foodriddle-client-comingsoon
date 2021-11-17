@@ -1,5 +1,6 @@
 import Meta from './Meta';
 import tw from 'twin.macro';
+import SocialIcons from './SocialIcons';
 
 //######### Component Styles #################
 
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
       <BodyContainer>
         <Main>{children}</Main>
         <Footer>
+          <SocialIcons />
           <p>
             Copyright &copy; {new Date().getFullYear()} by DavTech. All rights
             reserved
