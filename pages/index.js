@@ -7,7 +7,7 @@ const SoonContainer = styled.div`
   ${tw`flex flex-col justify-center items-center w-full h-12 my-32 px-4`}
 
   p {
-    ${tw`text-2xl text-center font-medium`};
+    ${tw`text-2xl text-center font-medium font-nicely`};
   }
 `;
 
