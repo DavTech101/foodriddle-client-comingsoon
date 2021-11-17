@@ -1,18 +1,22 @@
 import tw, { styled } from 'twin.macro';
-import Header from '../components/Header';
 
 //######### Components Styles #################
 
+const Container = tw.div`flex flex-col w-full h-12 justify-center items-center -mt-44`;
+
 const SoonContainer = styled.div`
-  ${tw`flex flex-col justify-center items-center w-full h-12 my-32 px-4`}
+  ${tw`flex justify-center items-center mb-16 px-4`}
 
   p {
-    ${tw`text-2xl text-center font-medium font-nicely`};
+    ${tw`w-5/6 text-2xl text-center font-medium font-nicely`};
   }
 `;
 
-const NotifyContainer = tw.div`flex flex-row`;
-const InputField = tw.input`bg-gray-200 py-3 px-6 rounded-full mr-4 border-transparent`;
+const NotifyContainer = tw.div`flex flex-row justify-center`;
+const InputField = styled.input`
+  ${tw`bg-gray-200 px-6 rounded-full mr-4 focus:outline-none border-4 border-opacity-100 text-gray-500`}
+  border-color: coral;
+`;
 
 const NotifyButton = styled.button`
   ${tw`px-6 py-3 rounded-full text-gray-50`}
@@ -36,23 +40,21 @@ const NotifyButton = styled.button`
 
 export default function Home({ restaurants }) {
   return (
-    <>
-      <Header
-        title='Riddle'
-        description='Solving food riddles like no tomorrow'
-      />
-
+    <Container>
       <SoonContainer>
         <p>
-          Soon we will launch. Enter your e-mail in de box below to get notified
-          when we do!
+          🥳 Soon we will launch! 🥳 <br />
+          <br />
+          Enter your e-mail in the box below to get notified when ultimately do!
         </p>
       </SoonContainer>
 
       <NotifyContainer>
         <InputField type='email' placeholder='Enter email address' />
-        <NotifyButton>Notify Me</NotifyButton>
+        <NotifyButton onClick={() => console.log('clicked')}>
+          Notify Me
+        </NotifyButton>
       </NotifyContainer>
-    </>
+    </Container>
   );
 }

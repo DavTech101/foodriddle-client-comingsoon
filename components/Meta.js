@@ -25,8 +25,8 @@ const Meta = ({ description, keywords, title }) => {
 
 Meta.defaultProps = {
   title: 'Food Riddle',
-  keywords: 'web development, programming',
-  description: 'Solves the food riddle',
+  keywords: 'Food, riddle, solve',
+  description: 'Solves your food riddles',
 };
 
 export default Meta;
