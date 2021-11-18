@@ -2,17 +2,18 @@ import tw, { styled } from 'twin.macro';
 
 //######### Components Styles #################
 
-const Container = tw.div`flex flex-col w-full h-12 justify-center items-center`;
+const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
 
 const SoonContainer = styled.div`
   ${tw`flex flex-col items-center mt-2 mb-16 px-4`}
 
   p {
-    ${tw`sm:w-5/6 text-2xl text-center font-medium font-nicely`};
+    ${tw`sm:w-5/6 text-2xl text-center font-normal font-sans`};
   }
 `;
 
 const NotifyContainer = tw.div`flex flex-col sm:flex-row items-center`;
+
 const InputField = styled.input`
   ${tw`bg-gray-200 text-gray-500 px-6 py-2 rounded-full 
         sm:mr-4 focus:outline-none border-2 border-opacity-100`}
@@ -46,7 +47,8 @@ export default function Home({ restaurants }) {
         <p>
           🥳 Soon we will launch! 🥳
           <br /> <br /> <br />
-          Enter your e-mail in the box below to get notified when ultimately do!
+          Enter your e-mail in the box below to get notified when we ultimately
+          do!
         </p>
       </SoonContainer>
 

@@ -6,15 +6,17 @@ module.exports = {
     fontFamily: {
       sans: ['ui-sans-serif', 'system-ui'],
       serif: ['ui-serif', 'Georgia'],
-      mono: ['ui-monospace', 'SFMono-Regular'],
-      display: ['Oswald'],
-      body: ['"Open Sans"'],
-      nicely: ['"Montagu Slab"'],
     },
     backgroundImage: {
-      foodriddle: "url('../public/foodriddle.jpg')",
+      fr1: "url('../public/foodriddle.jpg')",
+      fr2: "url('../public/bgimg.png')",
+      fr3: "url('../public/image.png')",
     },
     extend: {
+      screens: {
+        tablet: '800px',
+        // => @media (min-width: 640px) { ... }
+      },
       colors: {
         gray: {
           faint: '#eaeaea',

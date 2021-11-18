@@ -9,12 +9,12 @@ const IconsContainer = styled.span`
 `;
 
 const IconsCircle = styled.span`
-  ${tw`relative bg-purple-200 rounded-full 
+  ${tw`relative bg-red-200 rounded-full 
         flex justify-center items-center text-center p-2 
-        shadow-xl text-purple-600 my-2 mx-3`}
+        shadow-xl text-red-coral my-2 mx-3`}
 
   &:hover {
-    ${tw`bg-purple-400 text-purple-800 cursor-pointer`}
+    ${tw`text-gray-500 bg-green-forest cursor-pointer`}
   }
 `;
 

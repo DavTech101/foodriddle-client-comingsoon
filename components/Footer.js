@@ -3,8 +3,8 @@ import SocialIcons from './SocialIcons';
 
 //######### Component Styles #################
 
-const FooterContainer = tw.footer` w-full h-12  mt-48 flex flex-col justify-center items-center 
-                                text-gray-500`;
+const FooterContainer = tw.footer` w-full h-12 flex flex-col justify-center items-center 
+                                text-gray-500 mb-10`;
 
 //######### Components #################
 
