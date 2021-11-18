@@ -2,24 +2,25 @@ import tw, { styled } from 'twin.macro';
 
 //######### Components Styles #################
 
-const Container = tw.div`flex flex-col w-full h-12 justify-center items-center -mt-44`;
+const Container = tw.div`flex flex-col w-full h-12 justify-center items-center`;
 
 const SoonContainer = styled.div`
-  ${tw`flex justify-center items-center mb-16 px-4`}
+  ${tw`flex flex-col items-center mt-2 mb-16 px-4`}
 
   p {
-    ${tw`w-5/6 text-2xl text-center font-medium font-nicely`};
+    ${tw`sm:w-5/6 text-2xl text-center font-medium font-nicely`};
   }
 `;
 
-const NotifyContainer = tw.div`flex flex-row justify-center`;
+const NotifyContainer = tw.div`flex flex-col sm:flex-row items-center`;
 const InputField = styled.input`
-  ${tw`bg-gray-200 px-6 rounded-full mr-4 focus:outline-none border-2 border-opacity-100 text-gray-500`}
+  ${tw`bg-gray-200 text-gray-500 px-6 py-2 rounded-full 
+        sm:mr-4 focus:outline-none border-2 border-opacity-100`}
   border-color: coral;
 `;
 
 const NotifyButton = styled.button`
-  ${tw`px-6 py-3 rounded-full text-gray-50`}
+  ${tw`mt-3 sm:mt-0 p-2 sm:px-6 sm:py-3 rounded-full w-1/2 sm:w-full sm:rounded-full text-gray-50`}
 
   background-image: -webkit-linear-gradient(
     -31deg,
@@ -43,8 +44,8 @@ export default function Home({ restaurants }) {
     <Container>
       <SoonContainer>
         <p>
-          🥳 Soon we will launch! 🥳 <br />
-          <br />
+          🥳 Soon we will launch! 🥳
+          <br /> <br /> <br />
           Enter your e-mail in the box below to get notified when ultimately do!
         </p>
       </SoonContainer>

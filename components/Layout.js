@@ -7,7 +7,7 @@ import Header from '../components/Header';
 const BodyContainer = tw.div`min-h-screen h-screen py-0 px-0.5 flex flex-col 
                             justify-start items-center bg-white`;
 
-const Main = tw.main`py-10 px-0 flex-1 flex flex-col justify-center items-center`;
+const Main = tw.main`py-10 px-0 flex flex-col justify-center items-center`;
 
 //######### Components #################
 const Layout = ({ children }) => {
