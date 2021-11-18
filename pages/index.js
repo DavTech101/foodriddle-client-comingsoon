@@ -2,13 +2,13 @@ import tw, { styled } from 'twin.macro';
 
 //######### Components Styles #################
 
-const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
+const Container = tw.div`flex flex-col w-full justify-center items-center mb-10 `;
 
 const SoonContainer = styled.div`
   ${tw`flex flex-col items-center mt-2 mb-16 px-4`}
 
   p {
-    ${tw`sm:w-5/6 text-2xl text-center font-normal font-sans`};
+    ${tw`sm:w-5/6 text-2xl text-center font-normal font-sans antialiased`};
   }
 `;
 

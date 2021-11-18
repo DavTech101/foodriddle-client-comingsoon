@@ -10,7 +10,6 @@ const CustomStyles = createGlobalStyle`
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    ${tw`antialiased`}
   }
 `;
 
