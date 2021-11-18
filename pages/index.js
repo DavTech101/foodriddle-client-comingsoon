@@ -14,7 +14,7 @@ const SoonContainer = styled.div`
 
 const NotifyContainer = tw.div`flex flex-row justify-center`;
 const InputField = styled.input`
-  ${tw`bg-gray-200 px-6 rounded-full mr-4 focus:outline-none border-4 border-opacity-100 text-gray-500`}
+  ${tw`bg-gray-200 px-6 rounded-full mr-4 focus:outline-none border-2 border-opacity-100 text-gray-500`}
   border-color: coral;
 `;
 
