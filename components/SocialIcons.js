@@ -28,8 +28,8 @@ const SocialIcons = () => {
   return (
     <IconsContainer>
       {socials.map((social) => (
-        <Link href={social[1]}>
-          <IconsCircle key={social[0]}>{social[0]}</IconsCircle>
+        <Link key={social[1]} href={social[1]}>
+          <IconsCircle>{social[0]}</IconsCircle>
         </Link>
       ))}
     </IconsContainer>

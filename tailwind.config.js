@@ -13,6 +13,9 @@ module.exports = {
       fr3: "url('../public/image.png')",
     },
     extend: {
+      width: {
+        100: '33rem',
+      },
       screens: {
         tablet: '800px',
         // => @media (min-width: 640px) { ... }

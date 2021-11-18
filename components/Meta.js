@@ -10,14 +10,6 @@ const Meta = ({ description, keywords, title }) => {
 
       <link rel='icon' href='../favicon.ico' />
 
-      <link rel='preconnect' href='https://fonts.googleapis.com' />
-      <link rel='preconnect' href='https://fonts.googleapis.com' />
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-      <link
-        href='https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@500&display=swap'
-        rel='stylesheet'
-      />
-
       <title>{title}</title>
     </Head>
   );
