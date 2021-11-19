@@ -21,11 +21,20 @@ const InputField = styled.input`
 `;
 
 const NotifyButton = styled.button`
-  ${tw`mt-3 sm:mt-0 p-2 sm:px-6 sm:py-3 rounded-full 
-        w-1/2 sm:w-full sm:rounded-full text-gray-50`}
-  ${tw`hover:from-blue-500 hover:to-green-400`}
-  ${tw`bg-gradient-to-r from-green-400 
-      to-blue-500 focus:from-pink-500 focus:to-yellow-500`}
+  ${tw`mt-3 sm:mt-0 p-2 sm:px-6 sm:py-3 rounded-full w-1/2 sm:w-full sm:rounded-full text-gray-50`}
+
+  background-image: -webkit-linear-gradient(
+    -31deg,
+    rgb(86, 204, 242) 0%,
+    rgb(47, 128, 237) 100%
+  );
+
+  &:hover {
+    background-image: -webkit-linear-gradient(
+      -31deg,
+      rgb(47, 128, 237) 0%,
+      rgb(86, 204, 242) 100%
+    );
   }
 `;
 
