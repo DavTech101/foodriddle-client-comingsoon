@@ -14,7 +14,8 @@ const IconsCircle = styled.span`
         shadow-xl text-red-coral my-2 mx-3`}
 
   &:hover {
-    ${tw`text-gray-500 bg-green-forest cursor-pointer`}
+    ${tw`bg-gradient-to-r from-blue-500 hover:to-green-400 cursor-pointer`}
+    ${tw`text-gray-50`}
   }
 `;
 
