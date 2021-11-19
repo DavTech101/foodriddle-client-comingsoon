@@ -3,21 +3,28 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      sans: ['ui-sans-serif', 'system-ui'],
-      serif: ['ui-serif', 'Georgia'],
-    },
-    backgroundImage: {
-      fr1: "url('../public/foodriddle.jpg')",
-      fr2: "url('../public/bgimg.png')",
-      fr3: "url('../public/image.png')",
-    },
     extend: {
+      animation: {
+        tilt: 'tilt 10s infinite linear',
+      },
+      keyFrames: {
+        tilt: {
+          '0%, 50%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '25%': {
+            transform: 'rotate(2deg)',
+          },
+          '75%': {
+            transform: 'rotate(-2deg)',
+          },
+        },
+      },
       width: {
         100: '33rem',
       },
       screens: {
-        tablet: '800px',
+        frsignup: '528px',
         // => @media (min-width: 640px) { ... }
       },
       colors: {
@@ -36,10 +43,18 @@ module.exports = {
           forest: '#899c85',
         },
       },
+      backgroundImage: {
+        fr1: "url('../public/foodriddle.jpg')",
+        fr2: "url('../public/bgimg.png')",
+        fr3: "url('../public/image.png')",
+      },
+      fontFamily: {
+        sans: ['ui-sans-serif', 'system-ui'],
+        serif: ['ui-serif', 'Georgia'],
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
 };

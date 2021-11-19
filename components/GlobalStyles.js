@@ -6,10 +6,7 @@ import tw, { theme, GlobalStyles as BaseStyles } from 'twin.macro';
 const CustomStyles = createGlobalStyle`
   body {
     background: url(./image.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    ${tw`bg-cover`}
   }
 `;
 
