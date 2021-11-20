@@ -53,7 +53,13 @@ export default function Home({ restaurants }) {
       <NotifyContainer>
         <InputContainer className='group'>
           <InputShadow></InputShadow>
-          <InputField type='email' placeholder='Enter email address' />
+          <form>
+            <InputField
+              type='email'
+              placeholder='Enter email address'
+              name='signupfield'
+            />
+          </form>
         </InputContainer>
         <NotifyButton onClick={() => console.log('clicked')}>
           Notify Me
