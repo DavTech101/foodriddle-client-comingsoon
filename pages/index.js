@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import tw, { styled } from 'twin.macro';
+import { useForm } from 'react-hook-form';
 
 //######### Components Styles #################
 
@@ -32,12 +34,17 @@ const NotifyButton = styled.button`
   ${tw`rounded-full w-1/2 sm:w-full sm:rounded-full`}
   ${tw`bg-gradient-to-r from-green-400 to-blue-500`}
   ${tw`hover:from-blue-500 hover:to-green-400`}
-  ${tw`focus:from-pink-500 focus:to-yellow-500`}
 `;
 
 //######### Components #################
 
 export default function Home({ restaurants }) {
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  const onSubmitForm = (values) => {
+    console.log(values);
+  };
+
   return (
     <Container>
       <SoonContainer>
@@ -51,19 +58,18 @@ export default function Home({ restaurants }) {
       </SoonContainer>
 
       <NotifyContainer>
-        <InputContainer className='group'>
-          <InputShadow></InputShadow>
-          <form>
+        <form onSubmit={handleSubmit(onSubmitForm)}>
+          <InputContainer className='group'>
+            <InputShadow></InputShadow>
             <InputField
               type='email'
-              placeholder='Enter email address'
               name='signupfield'
+              {...register('signup')}
+              placeholder='Enter email address'
             />
-          </form>
-        </InputContainer>
-        <NotifyButton onClick={() => console.log('clicked')}>
-          Notify Me
-        </NotifyButton>
+          </InputContainer>
+          <NotifyButton type='submit'>Notify Me</NotifyButton>
+        </form>
       </NotifyContainer>
     </Container>
   );
