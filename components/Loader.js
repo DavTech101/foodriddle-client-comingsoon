@@ -5,9 +5,9 @@ const LoaderComponent = () => {
     <Loader
       type='Circles'
       color='#c46f4f'
-      height={100}
-      width={100}
-      timeout={10000} //3 secs
+      height={75}
+      width={75}
+      timeout={50000} //3 secs
     />
   );
 };

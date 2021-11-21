@@ -1,12 +1,10 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import tw, { styled } from 'twin.macro';
-import Loader from '../components/Loader';
 import { useForm } from 'react-hook-form';
 import { server } from '../config/settings';
+import { useState, useEffect } from 'react';
 
 //######### Components Styles #################
-
 const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
 
 const SoonContainer = styled.div`
@@ -41,12 +39,8 @@ const NotifyButton = styled.button`
 `;
 
 //######### Components #################
-
 export default function Home({ wokeup }) {
   const [message, setMessage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {}, [isLoading]);
 
   const {
     register,
@@ -55,31 +49,26 @@ export default function Home({ wokeup }) {
     reset,
   } = useForm();
 
-  const onSubmitForm = async (e) => {
-    setIsLoading(true);
-
+  const onSubmitForm = async (data) => {
     let config = {
-      method: 'POST',
+      method: 'post',
       url: `${server}/api/signup`,
       headers: {
         'Content-Type': 'application/json',
       },
-      data: e.data,
+
+      data,
     };
 
     try {
       setMessage(null);
-      console.log('isLoading');
       const response = await axios(config);
-      console.log('NotIsLoading');
-      await setIsLoading(false);
     } catch (error) {
-      setMessage('Email already signed up');
+      setMessage(error.message);
     }
   };
 
-  console.log(wokeup);
-
+  useEffect(() => {});
   return (
     <Container>
       <SoonContainer>
@@ -91,44 +80,37 @@ export default function Home({ wokeup }) {
           do!
         </p>
       </SoonContainer>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <NotifyContainer>
-          <InputContainer className='group'>
-            <InputShadow></InputShadow>
-            <form>
-              <EmailField
-                type='email'
-                name='email'
-                {...register('email', {
-                  required: {
-                    value: true,
-                    message: 'The email address is required',
-                  },
-                  maxLength: {
-                    value: 120,
-                    message: 'This email address is too long',
-                  },
-                  pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message:
-                      'This value does not match an email address format',
-                  },
-                })}
-                placeholder='Enter email address'
-              />
-            </form>
-          </InputContainer>
-          {errors.email && (
-            <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>
-          )}
-          {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
-          <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
-            Notify Me
-          </NotifyButton>
-        </NotifyContainer>
-      )}
+      <NotifyContainer>
+        <InputContainer className='group'>
+          <InputShadow></InputShadow>
+          <form>
+            <EmailField
+              type='email'
+              name='email'
+              {...register('email', {
+                required: {
+                  value: true,
+                  message: 'An email address is required',
+                },
+                maxLength: {
+                  value: 120,
+                  message: 'This email address is too long',
+                },
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'This value does not match an email address format',
+                },
+              })}
+              placeholder='Enter email address'
+            />
+          </form>
+        </InputContainer>
+        {errors.email && <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>}
+        {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
+        <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
+          Notify Me
+        </NotifyButton>
+      </NotifyContainer>
     </Container>
   );
 }
@@ -136,7 +118,7 @@ export default function Home({ wokeup }) {
 //######### Component Functions #################
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${server}/`);
+  const res = await fetch(`${server}/api`);
   const wokeup = await res.json();
 
   return {
@@ -145,3 +127,22 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+/*
+import Loader from '../components/Loader';
+import { useState, useEffect } from 'react';
+
+
+const [isLoading, setIsLoading] = useState(false);
+
+setIsLoading(true);
+
+  useEffect(() => {}, [isLoading]);
+
+{isLoading ? (
+  <Loader />
+) : (
+
+  )}
+
+*/
