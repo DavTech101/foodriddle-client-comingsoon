@@ -14,7 +14,7 @@ const SoonContainer = styled.div`
   }
 `;
 
-const NotifyContainer = tw.div`flex flex-col sm:flex-row items-center`;
+const NotifyContainer = tw.div`flex flex-col items-center`;
 
 const InputContainer = tw.div`relative`;
 const InputShadow = styled.div`
@@ -23,15 +23,16 @@ const InputShadow = styled.div`
   ${tw`group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`}
 `;
 
-const InputField = styled.input`
+const EmailField = styled.input`
   ${tw`relative bg-gray-200 text-gray-500 px-6 py-2 rounded-full`}
   ${tw`sm:mr-4 focus:outline-none border-2 border-opacity-100`}
   border-color: coral;
 `;
 
+const ErrorSpan = tw.span`mt-2 italic text-sm text-red-400`;
+
 const NotifyButton = styled.button`
-  ${tw`mt-7 sm:mt-0 p-2 sm:px-6 sm:py-3 text-gray-50`}
-  ${tw`rounded-full w-1/2 sm:w-full sm:rounded-full`}
+  ${tw`mt-7 p-2 text-gray-50 rounded-full w-1/2`}
   ${tw`bg-gradient-to-r from-green-400 to-blue-500`}
   ${tw`hover:from-blue-500 hover:to-green-400`}
 `;
@@ -39,7 +40,12 @@ const NotifyButton = styled.button`
 //######### Components #################
 
 export default function Home({ restaurants }) {
-  const { register, handleSubmit, errors, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const onSubmitForm = (values) => {
     console.log(values);
@@ -58,19 +64,37 @@ export default function Home({ restaurants }) {
       </SoonContainer>
 
       <NotifyContainer>
-        <form onSubmit={handleSubmit(onSubmitForm)}>
-          <InputContainer className='group'>
-            <InputShadow></InputShadow>
-            <InputField
+        <InputContainer className='group'>
+          <InputShadow></InputShadow>
+          <form>
+            <EmailField
               type='email'
-              name='signupfield'
-              {...register('signup')}
+              name='email'
+              {...register('email', {
+                required: {
+                  value: true,
+                  message: 'The email address is required',
+                },
+                maxLength: {
+                  value: 120,
+                  message: 'This email address is too long',
+                },
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'This value does not match an email address format',
+                },
+              })}
               placeholder='Enter email address'
             />
-          </InputContainer>
-          <NotifyButton type='submit'>Notify Me</NotifyButton>
-        </form>
+          </form>
+        </InputContainer>
+        {errors.email && <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>}
+        <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
+          Notify Me
+        </NotifyButton>
       </NotifyContainer>
     </Container>
   );
 }
+
+//######### Component Functions #################
