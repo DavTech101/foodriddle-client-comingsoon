@@ -1,4 +1,7 @@
+import axios from 'axios';
+import { useState } from 'react';
 import tw, { styled } from 'twin.macro';
+import Loader from '../components/Loader';
 import { useForm } from 'react-hook-form';
 import { server } from '../config/settings';
 
@@ -40,6 +43,9 @@ const NotifyButton = styled.button`
 //######### Components #################
 
 export default function Home({ wokeup }) {
+  const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -47,13 +53,30 @@ export default function Home({ wokeup }) {
     reset,
   } = useForm();
 
-  const onSubmitForm = (values) => {
-    console.log(values);
+  const onSubmitForm = async (data) => {
+    setIsLoading(true);
+
+    let config = {
+      method: 'POST',
+      url: `${server}/api/signup`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data,
+    };
+
+    try {
+      setMessage(null);
+      const response = await axios(config);
+    } catch (error) {
+      setMessage('Email already signed up');
+    }
   };
+
+  console.log(wokeup);
 
   return (
     <Container>
-      {console.log(wokeup)}
       <SoonContainer>
         <p>
           <span> Are you a food lover?</span> <br /> <br /> <br />
@@ -63,37 +86,44 @@ export default function Home({ wokeup }) {
           do!
         </p>
       </SoonContainer>
-
-      <NotifyContainer>
-        <InputContainer className='group'>
-          <InputShadow></InputShadow>
-          <form>
-            <EmailField
-              type='email'
-              name='email'
-              {...register('email', {
-                required: {
-                  value: true,
-                  message: 'The email address is required',
-                },
-                maxLength: {
-                  value: 120,
-                  message: 'This email address is too long',
-                },
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: 'This value does not match an email address format',
-                },
-              })}
-              placeholder='Enter email address'
-            />
-          </form>
-        </InputContainer>
-        {errors.email && <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>}
-        <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
-          Notify Me
-        </NotifyButton>
-      </NotifyContainer>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <NotifyContainer>
+          <InputContainer className='group'>
+            <InputShadow></InputShadow>
+            <form>
+              <EmailField
+                type='email'
+                name='email'
+                {...register('email', {
+                  required: {
+                    value: true,
+                    message: 'The email address is required',
+                  },
+                  maxLength: {
+                    value: 120,
+                    message: 'This email address is too long',
+                  },
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message:
+                      'This value does not match an email address format',
+                  },
+                })}
+                placeholder='Enter email address'
+              />
+            </form>
+          </InputContainer>
+          {errors.email && (
+            <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>
+          )}
+          {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
+          <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
+            Notify Me
+          </NotifyButton>
+        </NotifyContainer>
+      )}
     </Container>
   );
 }
