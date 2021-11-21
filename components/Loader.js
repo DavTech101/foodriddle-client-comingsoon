@@ -1,15 +1,15 @@
 import Loader from 'react-loader-spinner';
 
-const Loader = () => {
+const LoaderComponent = () => {
   return (
     <Loader
-      type='Puff'
-      color='#00BFFF'
+      type='Circles'
+      color='#c46f4f'
       height={100}
       width={100}
-      timeout={3000} //3 secs
+      timeout={10000} //3 secs
     />
   );
 };
 
-export default Loader;
+export default LoaderComponent;

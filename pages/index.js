@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import tw, { styled } from 'twin.macro';
 import Loader from '../components/Loader';
 import { useForm } from 'react-hook-form';
@@ -46,6 +46,8 @@ export default function Home({ wokeup }) {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {}, [isLoading]);
+
   const {
     register,
     handleSubmit,
@@ -53,7 +55,7 @@ export default function Home({ wokeup }) {
     reset,
   } = useForm();
 
-  const onSubmitForm = async (data) => {
+  const onSubmitForm = async (e) => {
     setIsLoading(true);
 
     let config = {
@@ -62,12 +64,15 @@ export default function Home({ wokeup }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      data,
+      data: e.data,
     };
 
     try {
       setMessage(null);
+      console.log('isLoading');
       const response = await axios(config);
+      console.log('NotIsLoading');
+      await setIsLoading(false);
     } catch (error) {
       setMessage('Email already signed up');
     }
