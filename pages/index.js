@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { useForm } from 'react-hook-form';
+import { server } from '../config/settings';
 
 //######### Components Styles #################
 
@@ -39,7 +39,7 @@ const NotifyButton = styled.button`
 
 //######### Components #################
 
-export default function Home({ restaurants }) {
+export default function Home({ wokeup }) {
   const {
     register,
     handleSubmit,
@@ -53,6 +53,7 @@ export default function Home({ restaurants }) {
 
   return (
     <Container>
+      {console.log(wokeup)}
       <SoonContainer>
         <p>
           <span> Are you a food lover?</span> <br /> <br /> <br />
@@ -98,3 +99,14 @@ export default function Home({ restaurants }) {
 }
 
 //######### Component Functions #################
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${server}/`);
+  const wokeup = await res.json();
+
+  return {
+    props: {
+      wokeup,
+    },
+  };
+};
