@@ -1,9 +1,11 @@
 import axios from 'axios';
 import tw, { styled } from 'twin.macro';
 import { useForm } from 'react-hook-form';
+import Loader from '../components/Loader';
 import { server } from '../config/settings';
 import { useState, useEffect } from 'react';
-import ComingSoon from '../components/ComingSoon';
+import SoonDescription from '../components/SoonDescription';
+import SignupSuccessful from '../components/SignupSuccessful';
 
 //######### Components Styles #################
 const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
@@ -11,6 +13,7 @@ const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`
 const NotifyContainer = tw.div`flex flex-col items-center`;
 
 const InputContainer = tw.div`relative`;
+
 const InputShadow = styled.div`
   ${tw`absolute -inset-0.5 rounded-full blur-md opacity-75`}
   ${tw`bg-gradient-to-r from-red-coral to-yellow-500`}
@@ -34,6 +37,8 @@ const NotifyButton = styled.button`
 //######### Components #################
 export default function Home({ wokeup }) {
   const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [signupSuccess, setSignupSuccess] = useState(false);
 
   const {
     register,
@@ -55,47 +60,63 @@ export default function Home({ wokeup }) {
 
     try {
       setMessage(null);
+      setIsLoading(true);
+
       const response = await axios(config);
+      setIsLoading(false);
+      setSignupSuccess(true);
     } catch (error) {
-      setMessage(error.message);
+      setIsLoading(false);
+      setMessage(JSON.stringify(error.response.data.message).slice(1, -1));
     }
   };
 
-  useEffect(() => {});
+  // ############# Render component each time values changes
+  useEffect(() => {}, [isLoading, message, signupSuccess]);
+
   return (
     <Container>
-      <ComingSoon />
-      <NotifyContainer>
-        <InputContainer className='group'>
-          <InputShadow></InputShadow>
-          <form>
-            <EmailField
-              type='email'
-              name='email'
-              {...register('email', {
-                required: {
-                  value: true,
-                  message: 'An email address is required',
-                },
-                maxLength: {
-                  value: 120,
-                  message: 'This email address is too long',
-                },
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: 'This value does not match an email address format',
-                },
-              })}
-              placeholder='Enter email address'
-            />
-          </form>
-        </InputContainer>
-        {errors.email && <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>}
-        {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
-        <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
-          Notify Me
-        </NotifyButton>
-      </NotifyContainer>
+      <SoonDescription />
+      {signupSuccess ? (
+        <SignupSuccessful />
+      ) : isLoading ? (
+        <Loader />
+      ) : (
+        <NotifyContainer>
+          <InputContainer className='group'>
+            <InputShadow></InputShadow>
+            <form>
+              <EmailField
+                type='email'
+                name='email'
+                {...register('email', {
+                  required: {
+                    value: true,
+                    message: 'An email address is required',
+                  },
+                  maxLength: {
+                    value: 120,
+                    message: 'This email address is too long',
+                  },
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message:
+                      'This value does not match an email address format',
+                  },
+                })}
+                placeholder='Enter email address'
+              />
+            </form>
+          </InputContainer>
+          {errors.email && (
+            <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>
+          )}
+          {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
+          <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
+            Notify Me
+          </NotifyButton>
+        </NotifyContainer>
+      )}
     </Container>
   );
 }
@@ -112,22 +133,3 @@ export const getStaticProps = async () => {
     },
   };
 };
-
-/*
-import Loader from '../components/Loader';
-import { useState, useEffect } from 'react';
-
-
-const [isLoading, setIsLoading] = useState(false);
-
-setIsLoading(true);
-
-  useEffect(() => {}, [isLoading]);
-
-{isLoading ? (
-  <Loader />
-) : (
-
-  )}
-
-*/

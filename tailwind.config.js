@@ -24,8 +24,8 @@ module.exports = {
         100: '33rem',
       },
       screens: {
-        frsignup: '528px',
-        // => @media (min-width: 640px) { ... }
+        frsignup: '550px',
+        // => @media (min-width: 550px) { ... }
       },
       colors: {
         gray: {

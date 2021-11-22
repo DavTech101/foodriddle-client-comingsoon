@@ -3,7 +3,7 @@ import tw, { styled } from 'twin.macro';
 //######### Component Styles #################
 const HeaderContainer = tw.div`flex flex-col justify-center items-center`;
 const ImageContainer = tw.img`w-1/2 h-32 object-cover`;
-const Description = tw.p`text-xl italic font-thin leading-normal text-center antialiased`;
+const Description = tw.p`px-0.5 -mt-4 text-xl italic font-thin leading-normal text-center antialiased`;
 
 //######### Components #################
 
