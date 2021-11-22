@@ -85,7 +85,11 @@ export default function Home(props) {
         <NotifyContainer>
           <InputContainer className='group'>
             <InputShadow></InputShadow>
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
               <EmailField
                 type='email'
                 name='email'
