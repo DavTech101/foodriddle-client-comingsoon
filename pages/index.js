@@ -35,7 +35,7 @@ const NotifyButton = styled.button`
 `;
 
 //######### Components #################
-export default function Home({ wokeup }) {
+export default function Home(props) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -127,12 +127,18 @@ export default function Home({ wokeup }) {
 //######### Component Functions #################
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api`);
-  const wokeup = await res.json();
+  let message = '';
+
+  try {
+    const server = await fetch(`${process.env.SERVER_WEBSITE}`);
+    message += `Server responded with status ${server.status}`;
+  } catch {
+    message += 'Server malfunctioning';
+  }
 
   return {
     props: {
-      wokeup,
+      message,
     },
   };
 };
