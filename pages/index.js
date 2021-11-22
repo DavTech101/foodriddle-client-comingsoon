@@ -36,6 +36,7 @@ const NotifyButton = styled.button`
 
 //######### Components #################
 export default function Home({ wokeup }) {
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
@@ -105,6 +106,8 @@ export default function Home({ wokeup }) {
                   },
                 })}
                 placeholder='Enter email address'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </form>
           </InputContainer>
