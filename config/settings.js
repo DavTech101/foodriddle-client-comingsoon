@@ -3,4 +3,4 @@ const dev = process.env.NODE_ENV !== 'production';
 
 export const server = dev
   ? `http://localhost:${PORT}`
-  : `https://foodriddle-client.vercel.app`;
+  : `${process.env.VERCEL_URL}`;
