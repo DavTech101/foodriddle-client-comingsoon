@@ -2,7 +2,6 @@ import axios from 'axios';
 import tw, { styled } from 'twin.macro';
 import { useForm } from 'react-hook-form';
 import Loader from '../components/Loader';
-import { server } from '../config/settings';
 import { useState, useEffect } from 'react';
 import SoonDescription from '../components/SoonDescription';
 import SignupSuccessful from '../components/SignupSuccessful';
@@ -51,7 +50,7 @@ export default function Home(props) {
   const onSubmitForm = async (data) => {
     let config = {
       method: 'post',
-      url: `${server}/api/signup`,
+      url: `/api/signup`,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -68,7 +67,7 @@ export default function Home(props) {
       setSignupSuccess(true);
     } catch (error) {
       setIsLoading(false);
-      setMessage(JSON.stringify(error.response.data.message).slice(1, -1));
+      setMessage(error.response.data.message);
     }
   };
 

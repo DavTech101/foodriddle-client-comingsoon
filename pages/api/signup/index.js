@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json',
     },
 
-    data: req.body,
+    data: JSON.stringify(req.body),
   };
 
   try {
