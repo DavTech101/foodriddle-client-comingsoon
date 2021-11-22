@@ -3,17 +3,10 @@ import tw, { styled } from 'twin.macro';
 import { useForm } from 'react-hook-form';
 import { server } from '../config/settings';
 import { useState, useEffect } from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 //######### Components Styles #################
 const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
-
-const SoonContainer = styled.div`
-  ${tw`flex flex-col items-center mt-2 mb-16 px-4`}
-
-  p {
-    ${tw`sm:w-5/6 text-2xl text-center font-normal font-comforter antialiased`};
-  }
-`;
 
 const NotifyContainer = tw.div`flex flex-col items-center`;
 
@@ -71,15 +64,7 @@ export default function Home({ wokeup }) {
   useEffect(() => {});
   return (
     <Container>
-      <SoonContainer>
-        <p>
-          <span> Are you a food lover?</span> <br /> <br /> <br />
-          🥳 Soon we will launch! 🥳
-          <br /> <br />
-          Enter your email in the box below to get notified when we ultimately
-          do!
-        </p>
-      </SoonContainer>
+      <ComingSoon />
       <NotifyContainer>
         <InputContainer className='group'>
           <InputShadow></InputShadow>
