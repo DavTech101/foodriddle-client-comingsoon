@@ -9,13 +9,13 @@ import SignupSuccessful from '../components/SignupSuccessful';
 //######### Components Styles #################
 const Container = tw.div`flex flex-col w-full justify-center items-center mb-10 overflow-hidden`;
 
-const NotifyContainer = tw.div`flex flex-col items-center`;
+const NotifyContainer = tw.div`flex flex-col items-center overflow-hidden`;
 
 const InputContainer = tw.div`relative`;
 
 const InputShadow = styled.div`
   ${tw`absolute -inset-0.5 rounded-full blur-md opacity-75`}
-  ${tw`bg-gradient-to-r from-red-coral to-yellow-500`}
+  ${tw`bg-gradient-to-r from-red-coral to-yellow-500 overflow-hidden`}
   ${tw`group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`}
 `;
 
