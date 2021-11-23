@@ -7,7 +7,7 @@ import SoonDescription from '../components/SoonDescription';
 import SignupSuccessful from '../components/SignupSuccessful';
 
 //######### Components Styles #################
-const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
+const Container = tw.div`flex flex-col w-full justify-center items-center mb-10 overflow-hidden`;
 
 const NotifyContainer = tw.div`flex flex-col items-center`;
 
