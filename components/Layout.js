@@ -7,9 +7,9 @@ import Header from '../components/Header';
 const PageContainer = tw.div`flex flex-row relative justify-center`;
 
 const BodyContainer = styled.div`
-  ${tw`absolute left-0 py-6 px-0.5 flex flex-col justify-between items-center overflow-auto`}
-  ${tw`min-h-screen h-screen frsignup:w-100`}
-  ${tw`bg-white bg-opacity-95 rounded-3xl`}
+  ${tw`absolute left-0 py-6 px-0.5 flex flex-col justify-between`}
+  ${tw`min-h-screen h-screen frsignup:w-100 items-center `}
+  ${tw`bg-white bg-opacity-95 rounded-3xl overflow-auto`}
 `;
 
 const Main = tw.main`py-10 px-0 flex flex-col justify-center items-center`;

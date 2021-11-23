@@ -1,29 +1,25 @@
 import tw, { styled } from 'twin.macro';
 
 const SoonContainer = styled.div`
-  ${tw`flex flex-col items-center mt-2 mb-16 px-4`}
+  ${tw`flex flex-col justify-between items-center text-center mt-2 mb-16 px-4`}
+
+  h1 {
+    ${tw`font-comforter text-3xl font-bold mb-16 leading-snug`};
+  }
 
   p {
-    ${tw`w-11/12 text-lg text-center font-normal antialiased`};
-
-    span {
-      ${tw`font-comforter text-2xl font-bold`};
-    }
+    ${tw`w-11/12 mt-3 text-xl font-thin leading-normal antialiased`};
   }
 `;
 
 const SoonDescription = () => {
   return (
     <SoonContainer>
+      <h1> Are you a food lover?</h1>
+
+      <p>🥳 Soon we will launch! 🥳</p>
       <p>
-        <span> Are you a food lover?</span>
-        <br /> <br /> <br />
-        🥳 <strong>Soon we will launch!</strong> 🥳
-        <br />
-        <i>
-          Enter your email in the box below to get notified when we ultimately
-          do!
-        </i>
+        Enter your email in the box below to get notified when we ultimately do!
       </p>
     </SoonContainer>
   );

@@ -7,14 +7,14 @@ import SoonDescription from '../components/SoonDescription';
 import SignupSuccessful from '../components/SignupSuccessful';
 
 //######### Components Styles #################
-const Container = tw.div`flex flex-col w-full justify-center items-center mb-10 overflow-auto`;
+const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
 
 const NotifyContainer = tw.div`flex flex-col items-center`;
 
 const InputContainer = tw.div`relative`;
 
 const InputShadow = styled.div`
-  ${tw`absolute -inset-0.5 rounded-full blur-md opacity-75`}
+  ${tw`absolute -inset-0.5 rounded-full blur-lg opacity-75`}
   ${tw`bg-gradient-to-r from-red-coral to-yellow-500`}
   ${tw`group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`}
 `;
