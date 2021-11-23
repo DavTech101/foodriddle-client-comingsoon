@@ -9,19 +9,19 @@ import SignupSuccessful from '../components/SignupSuccessful';
 //######### Components Styles #################
 const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
 
-const NotifyContainer = tw.div`flex flex-col items-center`;
+const NotifyContainer = tw.div`flex flex-col justify-center items-center`;
 
 const InputContainer = tw.div`relative`;
 
 const InputShadow = styled.div`
-  ${tw`absolute -inset-0.5 rounded-full blur-lg opacity-75`}
+  ${tw`absolute -inset-0.5 rounded-full blur-md opacity-75`}
   ${tw`bg-gradient-to-r from-red-coral to-yellow-500`}
   ${tw`group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`}
 `;
 
 const EmailField = styled.input`
   ${tw`relative bg-gray-200 text-gray-500 px-6 py-2 rounded-full`}
-  ${tw`sm:mr-4 focus:outline-none border-2 border-opacity-100`}
+  ${tw`focus:outline-none border-2 border-opacity-100`}
   border-color: coral;
 `;
 
