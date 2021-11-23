@@ -4,10 +4,10 @@ import Footer from './Footer';
 import Header from '../components/Header';
 
 //######### Component Styles #################
-const PageContainer = tw.div`flex flex-row relative justify-center overflow-hidden`;
+const PageContainer = tw.div`flex flex-row relative justify-center`;
 
 const BodyContainer = styled.div`
-  ${tw`absolute left-0 py-6 px-0.5 flex flex-col justify-between items-center`}
+  ${tw`absolute left-0 py-6 px-0.5 flex flex-col justify-between items-center overflow-hidden`}
   ${tw`min-h-screen h-screen frsignup:w-100`}
   ${tw`bg-white bg-opacity-95 rounded-3xl`}
 `;
