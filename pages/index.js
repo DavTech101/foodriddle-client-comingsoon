@@ -8,8 +8,9 @@ import SignupSuccessful from '../components/SignupSuccessful';
 
 //######### Components Styles #################
 const Container = tw.div`flex flex-col w-full justify-center items-center mb-10 overflow-hidden`;
+const SecondContainer = tw.div`overflow-auto`;
 
-const NotifyContainer = tw.div`flex flex-col items-center overflow-hidden`;
+const NotifyContainer = tw.div`flex flex-col items-center`;
 
 const InputContainer = tw.div`relative`;
 
@@ -76,53 +77,55 @@ export default function Home(props) {
 
   return (
     <Container>
-      <SoonDescription />
-      {signupSuccess ? (
-        <SignupSuccessful />
-      ) : isLoading ? (
-        <Loader />
-      ) : (
-        <NotifyContainer>
-          <InputContainer className='group'>
-            <InputShadow></InputShadow>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <EmailField
-                type='email'
-                name='email'
-                {...register('email', {
-                  required: {
-                    value: true,
-                    message: 'An email address is required',
-                  },
-                  maxLength: {
-                    value: 120,
-                    message: 'This email address is too long',
-                  },
-                  pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message:
-                      'This value does not match an email address format',
-                  },
-                })}
-                placeholder='Enter email address'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </form>
-          </InputContainer>
-          {errors.email && (
-            <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>
-          )}
-          {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
-          <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
-            Notify Me
-          </NotifyButton>
-        </NotifyContainer>
-      )}
+      <SecondContainer>
+        <SoonDescription />
+        {signupSuccess ? (
+          <SignupSuccessful />
+        ) : isLoading ? (
+          <Loader />
+        ) : (
+          <NotifyContainer>
+            <InputContainer className='group'>
+              <InputShadow></InputShadow>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <EmailField
+                  type='email'
+                  name='email'
+                  {...register('email', {
+                    required: {
+                      value: true,
+                      message: 'An email address is required',
+                    },
+                    maxLength: {
+                      value: 120,
+                      message: 'This email address is too long',
+                    },
+                    pattern: {
+                      value: /\S+@\S+\.\S+/,
+                      message:
+                        'This value does not match an email address format',
+                    },
+                  })}
+                  placeholder='Enter email address'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </form>
+            </InputContainer>
+            {errors.email && (
+              <ErrorSpan>&#9888; {errors.email.message}</ErrorSpan>
+            )}
+            {message && <ErrorSpan>&#9888; {message}</ErrorSpan>}
+            <NotifyButton type='submit' onClick={handleSubmit(onSubmitForm)}>
+              Notify Me
+            </NotifyButton>
+          </NotifyContainer>
+        )}
+      </SecondContainer>
     </Container>
   );
 }
