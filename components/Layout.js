@@ -11,7 +11,7 @@ const BodyContainer = styled.div`
   ${tw`min-h-screen h-screen frsignup:w-100 items-center `}
   ${tw`bg-white bg-opacity-95 rounded-3xl overflow-hidden`}
 
-  &:hover, &:active, &:focus {
+  &:hover, &:active {
     ${tw`overflow-auto`}
   }
 `;
