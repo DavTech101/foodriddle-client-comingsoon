@@ -12,7 +12,7 @@ const BodyContainer = styled.div`
   ${tw`bg-white bg-opacity-95 rounded-3xl overflow-hidden`}
 
   &:hover, &:active, &:focus {
-    ${tw`overflow-auto`}
+    ${tw`overflow-y-auto`}
   }
 `;
 
