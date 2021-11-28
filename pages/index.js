@@ -7,16 +7,17 @@ import SoonDescription from '../components/SoonDescription';
 import SignupSuccessful from '../components/SignupSuccessful';
 
 //######### Components Styles #################
-const Container = tw.div`flex flex-col w-full justify-center items-center mb-10`;
+const Container = tw.div`w-full justify-center items-center mb-10`;
 
-const NotifyContainer = tw.div`flex flex-col justify-center items-center`;
+const NotifyContainer = tw.div`grid mx-auto justify-center items-center`;
 
 const InputContainer = tw.div`relative`;
 
 const InputShadow = styled.div`
   ${tw`absolute -inset-0.5 rounded-full blur-md opacity-75`}
   ${tw`bg-gradient-to-r from-red-coral to-yellow-500`}
-  ${tw`group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`}
+  ${tw`group-hover:opacity-100 transition duration-1000`}
+  ${tw`group-hover:duration-200 animate-tilt`}
 `;
 
 const EmailField = styled.input`
@@ -28,7 +29,7 @@ const EmailField = styled.input`
 const ErrorSpan = tw.span`mt-2 italic text-sm text-red-400`;
 
 const NotifyButton = styled.button`
-  ${tw`mt-7 p-2 text-gray-50 rounded-full w-1/2`}
+  ${tw`mt-7 mx-auto py-2 px-2 text-gray-50 rounded-full w-1/2`}
   ${tw`bg-gradient-to-r from-green-400 to-blue-500`}
   ${tw`hover:from-blue-500 hover:to-green-400`}
 `;

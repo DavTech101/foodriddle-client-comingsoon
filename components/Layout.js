@@ -4,7 +4,7 @@ import Footer from './Footer';
 import Header from '../components/Header';
 
 //######### Component Styles #################
-const PageContainer = tw.div`flex flex-row relative justify-center min-h-screen w-full`;
+const PageContainer = tw.div`grid relative justify-center min-h-screen w-full`;
 
 const BodyContainer = styled.div`
   ${tw`absolute left-0 py-6 px-0.5 flex flex-col justify-between`}
@@ -16,7 +16,7 @@ const BodyContainer = styled.div`
   }
 `;
 
-const Main = tw.main`py-10 px-0 flex flex-col justify-center items-center`;
+const Main = tw.main`py-10 px-0`;
 
 //######### Components #################
 const Layout = ({ children }) => {
