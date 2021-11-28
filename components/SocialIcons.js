@@ -6,6 +6,7 @@ import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
 
 const IconsContainer = styled.span`
   ${tw`m-1 w-full px-4 py-2 grid grid-flow-col justify-center text-3xl`}
+  padding: 3rem;
 `;
 
 const IconsCircle = styled.span`
