@@ -38,7 +38,7 @@ module.exports = {
         },
         red: {
           burger: '#B91646',
-          coral: '#c46f4f',
+          sundown: '#c46f4f',
           ligt: '#c48c78',
         },
         green: {

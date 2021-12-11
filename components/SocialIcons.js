@@ -10,11 +10,10 @@ const IconsContainer = styled.span`
 
 const IconsCircle = styled.span`
   ${tw`relative bg-red-200 rounded-full justify-center items-center text-center p-2 
-        shadow-xl text-red-coral my-2 mx-3`}
+        shadow-xl text-red-ligt my-2 mx-3`}
 
   &:hover {
-    ${tw`bg-gradient-to-r from-blue-500 hover:to-green-400 cursor-pointer`}
-    ${tw`text-gray-50`}
+    ${tw`text-gray-50 bg-gradient-to-r from-red-ligt to-green-forest cursor-pointer`}
   }
 `;
 

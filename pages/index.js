@@ -14,15 +14,15 @@ const NotifyContainer = tw.div`grid mx-auto justify-center items-center`;
 const InputContainer = tw.div`relative`;
 
 const InputShadow = styled.div`
-  ${tw`absolute -inset-0.5 rounded-full blur-md opacity-75`}
-  ${tw`bg-gradient-to-r from-red-coral to-yellow-500`}
+  ${tw`absolute -inset-0.5 rounded-full blur-xl opacity-50`}
+  ${tw`bg-gradient-to-r from-red-ligt to-green-forest`}
   ${tw`group-hover:opacity-100 transition duration-1000`}
   ${tw`group-hover:duration-200 animate-tilt`}
 `;
 
 const EmailField = styled.input`
   ${tw`relative bg-gray-200 text-gray-500 px-6 py-2 rounded-full`}
-  ${tw`focus:outline-none border-2 border-opacity-100`}
+  ${tw`focus:outline-none border-2`}
   border-color: coral;
 `;
 
