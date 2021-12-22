@@ -7,13 +7,14 @@ import SoonDescription from '../components/SoonDescription';
 import SignupSuccessful from '../components/SignupSuccessful';
 
 //######### Components Styles #################
-const Container = tw.div`w-full justify-center items-center mb-10`;
+const Container = tw.div `w-full justify-center items-center mb-10`;
 
-const NotifyContainer = tw.div`grid mx-auto justify-center items-center`;
+const LoaderWrapper = tw.div `flex justify-center`;
+const NotifyContainer = tw.div `grid mx-auto justify-center items-center`;
 
-const InputContainer = tw.div`relative`;
+const InputContainer = tw.div `relative`;
 
-const InputShadow = styled.div`
+const InputShadow = styled.div `
   ${tw`absolute -inset-0.5 rounded-full blur-xl opacity-50`}
   ${tw`bg-gradient-to-r from-red-ligt to-green-forest`}
   ${tw`group-hover:opacity-100 transition duration-1000`}
@@ -45,7 +46,6 @@ export default function Home(props) {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   const onSubmitForm = async (data) => {
@@ -81,7 +81,9 @@ export default function Home(props) {
       {signupSuccess ? (
         <SignupSuccessful />
       ) : isLoading ? (
-        <Loader />
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
       ) : (
         <NotifyContainer>
           <InputContainer className='group'>
