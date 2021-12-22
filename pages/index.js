@@ -12,7 +12,7 @@ const Container = tw.div `w-full justify-center items-center mb-10`;
 const LoaderWrapper = tw.div `flex justify-center`;
 const NotifyContainer = tw.div `grid mx-auto justify-center items-center`;
 
-const InputContainer = tw.div `relative`;
+const InputContainer = tw.div `relative mx-auto`;
 
 const InputShadow = styled.div `
   ${tw`absolute -inset-0.5 rounded-full blur-xl opacity-50`}
@@ -27,7 +27,7 @@ const EmailField = styled.input`
   border-color: coral;
 `;
 
-const ErrorSpan = tw.span`mt-2 italic text-sm text-red-400`;
+const ErrorSpan = tw.span`mt-2 mx-auto italic text-sm text-red-400`;
 
 const NotifyButton = styled.button`
   ${tw`mt-7 mx-auto py-2 px-2 text-gray-50 rounded-full w-1/2`}
@@ -51,7 +51,7 @@ export default function Home(props) {
   const onSubmitForm = async (data) => {
     let config = {
       method: 'post',
-      url: `/api/signup`,
+      url: `/api/signup/`,
       headers: {
         'Content-Type': 'application/json',
       },

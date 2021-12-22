@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
     try {
         const response = await axios(config);
-        console.log('signed up');
+
         res.status(response.status).json({ message: 'successfully signed up' });
     } catch (error) {
         res.status(error.response.status).json(error.response.data);
