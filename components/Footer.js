@@ -15,7 +15,7 @@ const Footer = () => {
         <SocialIcons />
         <p>
           Copyright &copy; {new Date().getFullYear()} by DavTech. All rights
-          reserved
+          reserved.
         </p>
       </FooterContainer>
     </>
